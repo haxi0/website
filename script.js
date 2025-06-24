@@ -5,6 +5,7 @@ const images = [
 const defaultButtons = document.querySelector('.default-buttons');
 const telegramButton = document.querySelector('.telegram-button');
 const welcomeText = document.getElementById('welcome-text');
+const favicon = document.getElementById('favicon');
 let currentIndex = 0;
 
 function toggleContent() {
@@ -14,11 +15,12 @@ function toggleContent() {
     welcomeText.textContent = showTelegram 
         ? "Welcome to yureek's website" 
         : "Welcome to haxi0's website";
+    document.title = showTelegram ? "yureek" : "haxi0";
+    favicon.href = showTelegram ? "./yureek.png" : "./haxio.png";
 }
 
 function startShaking() {
     images.forEach(img => img.classList.add('shaking'));
-    
     setTimeout(() => {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % images.length;
