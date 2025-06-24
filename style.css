@@ -1,110 +1,173 @@
-body {
-  background-color: black;
-  color: white;
-  font-family: 'Monaco';
-  text-align: center;
-
-  margin: 0;
-  height: 100vh;
-  width: 100%;
-
-  display: grid;
-  place-items: center;
-}
-
 * {
-  box-sizing: border-box;
-  -webkit-font-smoothing: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-  padding: 50px 10px;
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Monaco', monospace;
+    min-height: 100vh;
+    display: flex;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 }
 
-.welcome span {
-  font-size: 5rem;
-  padding: 0 10px;
+.welcome h1 {
+    font-size: 5rem;
+    text-align: center;
+    font-weight: normal;
 }
 
-.welcome img {
-  width: 150px;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+.image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.profile-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-img.active {
+    opacity: 1;
+}
+
+.profile-img.shaking {
+    animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(3px, 1px); }
+    80% { transform: translate(-1px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.telegram-button {
+    display: none;
+}
+
+.pixel-button {
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 25px 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 200ms ease;
+}
+
+.pixel-button:active {
+    transform: translateY(2px);
+}
+
+.pixel-button::before,
+.pixel-button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: white;
+    z-index: -1;
+}
+
+.pixel-button::before {
+    top: 10px;
+    bottom: 10px;
+    left: -10px;
+    right: -10px;
+}
+
+.pixel-button::after {
+    top: 4px;
+    bottom: 4px;
+    left: -6px;
+    right: -6px;
 }
 
 @font-face {
-  src: url(./monaco.ttf) format('truetype');
-  font-family: 'Monaco';
+    font-family: 'Monaco';
+    src: url(./monaco.ttf) format('truetype');
 }
 
-.pixelated {
-  background: white;
-  color: black;
-  text-decoration: none;
-
-  font-size: 40px;
-  padding: 40px 20px;
-  margin: 10px auto;
-  width: 90%;
-  max-width: 500px;
-  top: 0;
-
-  display: block;
-  position: relative;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  user-select: none;
-  transition: top 200ms ease;
+@media (max-width: 768px) {
+    .welcome h1 {
+        font-size: 2.5rem;
+    }
+    
+    .pixel-button {
+        font-size: 1.5rem;
+        padding: 20px 30px;
+    }
+    
+    .image-container {
+        width: 150px;
+        height: 150px;
+    }
 }
 
-.pixelated:active {
-  top: 2px;
-}
-
-.pixelated::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: -10px;
-  right: -10px;
-  background: white;
-  z-index: -1;
-}
-
-.pixelated::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  left: -6px;
-  right: -6px;
-  background: white;
-  z-index: -1;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
-  background-color: #555;
+@media (max-width: 480px) {
+    .welcome h1 {
+        font-size: 2rem;
+    }
+    
+    .pixel-button {
+        font-size: 1.2rem;
+        padding: 15px 25px;
+    }
 }

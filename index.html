@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <head><link rel="icon" type="image/png" href="./haxio.png"/></head>
+    <link rel="icon" type="image/png" href="./haxio.png">
     <title>haxi0</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="container">
-        <div class="welcome">
-            <img src="./haxio.png" alt="haxi0's profile picture in a Mac">
-            <span>Welcome to haxi0's website</span>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="welcome">
+                <div class="image-container">
+                    <img src="./haxio.png" alt="haxi0" class="profile-img active" id="image1">
+                    <img src="./yureek.png" alt="yureek" class="profile-img" id="image2">
+                </div>
+                <h1 id="welcome-text">Welcome to haxi0's website</h1>
+            </div>
+            <div class="buttons-container">
+                <div class="button-group default-buttons">
+                    <a class="pixel-button" href="https://dsc.gg/haxi0sm-reborn">Discord Server</a>
+                    <a class="pixel-button" href="https://github.com/haxi0">GitHub Profile</a>
+                </div>
+                <div class="button-group telegram-button">
+                    <a class="pixel-button" href="https://t.me/haxiports">Telegram Channel</a>
+                </div>
+            </div>
         </div>
-
-        <a class="pixelated" href="https://dsc.gg/haxi0sm-reborn">
-            Discord Server Link
-        </a>
-        <a class="pixelated" href="https://github.com/haxi0">
-            GitHub Link
-        </a>
     </div>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
