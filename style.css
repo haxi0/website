@@ -147,7 +147,7 @@ body {
 
 @media (max-width: 768px) {
     .welcome h1 {
-        font-size: 2.5rem;
+        font-size: 4.5rem;
     }
     
     .pixel-button {
@@ -163,7 +163,7 @@ body {
 
 @media (max-width: 480px) {
     .welcome h1 {
-        font-size: 2rem;
+        font-size: 5rem;
     }
     
     .pixel-button {
